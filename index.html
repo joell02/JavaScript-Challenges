@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/CSS/style.css">
+    <title>JavaScript on Steroids</title>
+</head>
+
+<body>
+
+    <div class="container-1">
+        <h2>Challenge 1: Your Age in Days</h2>
+
+        <div class="flex-box-container-1">
+            <div>
+                <button class="btn btn-primary" onclick="ageInDays()">Click me</button>
+            </div>
+
+            <div>
+                <button class="btn btn-danger" onclick="reset()">Reset</button>
+            </div>
+        </div>
+
+        <div class="flex-box-container-1">
+            <div id="flex-box-result"></div>
+        </div>
+    </div>
+
+    <div class="container-2">
+        <h2>Challenge 2: Toronto Raptors Generator</h2>
+        <button class="btn btn-success" id="raptor-generator" onclick="generateRaptor()">Generate Raptor</button>
+        <div class="flex-box-container-2" id="flex-raptor-gen">
+        </div>
+    </div>
+
+    <div class="container-3">
+        <h2>Challenge 3: Rock, Paper, Scissors</h2>
+
+        <div class="flex-box-rps" id="flex-box-rps-div">
+            <img id="rock" onclick="rpsGame(this)"
+                src="https://lh3.googleusercontent.com/proxy/NJChSCWDqLg8fteEVXRCp0x8YDE00Dn4z-Kss-m1T_2RDmIFioL6tgvMX14Onnko__W8IotXiCDt-_FPnMOtbHKOstBdvVB0CmMb"
+                height="150" width="150">
+            <img id="paper" onclick="rpsGame(this)"
+                src="https://www.pinclipart.com/picdir/middle/23-237515_primary-writing-paper-clipart-clip-art-library-in.png"
+                height="150" width="150">
+            <img id="scissors" onclick="rpsGame(this)"
+                src="data:image/png;base64,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"
+                height="150" width="150">
+        </div>
+    </div>
+
+    <div class="container-4">
+        <h2 id="change-my-color">Challenge 4: Change the colour of all the buttons</h2>
+
+        <div class="flex-box-pick-color">
+            <form action="">
+                <select name="backdrop" id="background" onchange="buttonColorChange(this)">
+                    <option value="random">Random</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="reset">Reset</option>
+                </select>
+            </form>
+
+            <button class="btn btn-primary">Kawhi Leonard</button>
+            <button class="btn btn-danger">Kyle Lowry</button>
+            <button class="btn btn-warning">Fred VanVleet</button>
+            <button class="btn btn-success">Pascal Siakam</button>
+        </div>
+    </div>
+
+    <div class="container-5">
+        <h2>Challenge 5: BlackJack</h2>
+        <h3><span id="blackjack-result">Let's Play</span></h3>
+        <div class="flex-blackjack-row-1">
+            <div id="your-box">
+                <h2>You: <span id="your-blackjack-result">0</span></h2>
+            </div>
+            <div id="dealer-box">
+                <h2>Dealer: <span id="dealer-blackjack-result">0</span></h2>
+            </div>
+        </div>
+        <div class="flex-blackjack-row-2">
+            <div>
+                <button class="btn-lg btn-primary mr-2" id="blackjack-hit-button">Hit</button>
+                <button class="btn-lg btn-warning mr-2" id="blackjack-stand-button">Stand</button>
+                <button class="btn-lg btn-danger mr-2" id="blackjack-deal-button">Deal</button>
+            </div>
+        </div>
+        <div class="flex-blackjack-row-3">
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Draws</th>
+                </tr>
+                <tr>
+                    <td><span id="wins">0</span></td>
+                    <td><span id="losses">0</span></td>
+                    <td><span id="draws">0</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="static/JS/script.js"></script>
+</body>
+
+</html>
